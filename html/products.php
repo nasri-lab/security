@@ -19,7 +19,7 @@
 
 			$result = $conn->query("SELECT * FROM product WHERE id_category = " . $id_category);
 
-			echo "SELECT * FROM product WHERE id_category = " . $id_category;
+			//echo "SELECT * FROM product WHERE id_category = " . $id_category;
 
 			if ($result->num_rows <= 0) 
 				echo 'Aucun produit trouvé<br /><br />'; 
