@@ -2,16 +2,15 @@ version: '3.1'
 
 services:
   web:
-    image: php:7.4-apache
+    build: .
     container_name: php_web
     restart: always
     ports:
       - "8000:80"
     volumes:
-      - ./html:/var/www/html
+      - /home/nasri/www/sql-injection:/var/www/html
     networks:
       - app-network
-
   db:
     image: mysql:5.7
     container_name: mysql_db
