@@ -1,9 +1,12 @@
 # Exercice 1 : Audit de sécurité
 
-1. Essayez de contourner via l’injection SQL le formulaire de login. Dans la plupart des sites vulnérables face à l’injection, vous pouvez injecter du SQL dans le champ du login.
+## Etape 1
+Essayez de contourner via l’injection SQL le formulaire de login. Dans la plupart des sites vulnérables face à l’injection, vous pouvez injecter du SQL dans le champ du login.
 Conseil : Pour avancer à pas sûrs, affichez les requêtes SQL générés le long de votre travail.
 Une fois vous contournez le formulaire de login, essayez de noter votre profil, est ce que vous vous êtes connectez en tant que simple utilisateur ou en tant qu’administrateur. Notez-le, c’est important.
-2. Une fois connectés, naviguez dans l’application et chercher les pages ayant des URLs avec paramètres. Si ces pages affichent des produits par catégorie ou des utilisateurs par profil et que cette catégorie/profil est passé en paramètre, alors ces pages sont une vraie faille de sécurité, et la porte d’entrée est l’URL. Techniquement la requête derrière doit être du genre :
+
+## Etape 2
+Une fois connectés, naviguez dans l’application et chercher les pages ayant des URLs avec paramètres. Si ces pages affichent des produits par catégorie ou des utilisateurs par profil et que cette catégorie/profil est passé en paramètre, alors ces pages sont une vraie faille de sécurité, et la porte d’entrée est l’URL. Techniquement la requête derrière doit être du genre :
 Select …. FROM …. WHERE …. and id_cat = <ID passé en param>
 Si nous passons en paramètre un id suivi d’un morceau SQL du genre UNION Select … la page affichera l’union des deux requêtes.
 Faites cet exercice sur la page des produits, et affichez les valeurs 1, 1, 1 en bas des produits.
