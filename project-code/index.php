@@ -27,7 +27,7 @@
 
 				$sql = "SELECT * FROM account WHERE email = '" . $email . "' AND password = '" . MD5($password) . "' ";
 
-				echo $sql;
+				//echo $sql;
 
 				$result = $conn->query($sql);
 
