@@ -20,7 +20,7 @@
 				echo 'Aucune catégorie trouvée<br /><br />'; 
 			else {
 
-				echo '<table>';
+				echo '<table><tr><th>ID</th><th>LABEL</th><th>ACTIONS</th></tr>';
 
 				while ($row = $result->fetch_assoc()) {
 			        $id 		= $row["id"];

@@ -14,29 +14,28 @@
 			    die("Connection failed: " . $conn->connect_error);
 			}
 
-			$id_category = $_GET['category_id'];
-				
-
-			$result = $conn->query("SELECT * FROM product WHERE id_category = " . $id_category);
-
-			//echo "SELECT * FROM product WHERE id_category = " . $id_category;
+			$result = $conn->query("SELECT * FROM account");
 
 			if ($result->num_rows <= 0) 
-				echo 'Aucun produit trouvé<br /><br />'; 
+				echo 'Aucun utilisateur trouvé<br /><br />'; 
 			else {
 
-				echo '<table><tr><th>ID</th><th>LABEL</th><th>ID CATEGORY</th></tr>';
+				echo '<table><tr><th>ID</th><th>NAME</th><th>EMAIL</th><th>PASSWORD</th><th>PROFILE</th></tr>';
 
 				while ($row = $result->fetch_assoc()) {
 			        $id 		= $row["id"];
-			        $label 		= $row["label"];
-			        $idCategory 		= $row["id_category"];
+			        $name 		= $row["name"];
+			        $email 		= $row["email"];
+			        $password 		= $row["password"];
+			        $profil 		= $row["profile"];
 			
 				?>
 					<tr>
 						<td><?php echo $id; ?></td>
-						<td><?php echo $label; ?></td>
-						<td><?php echo $idCategory; ?></td>
+						<td><?php echo $name; ?></td>
+						<td><?php echo $email; ?></td>
+						<td><?php echo $password; ?></td>
+						<td><?php echo $profil; ?></td>
 					</tr>
 			<?php
 
