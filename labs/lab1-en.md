@@ -1,4 +1,4 @@
-# Phase 1: Security Audit
+# Phase 1: Security Audit [French version](https://github.com/nasri-lab/sql-injection/blob/main/labs/lab1%20-%20sql%20injection%20-%20fr.md)
 
 ## Steps
 
@@ -76,18 +76,17 @@ At this stage, note that you have been able to:
 
 # Phase 2: Implementation of Security Measures
 
-**Règle générale : On commence par régler les problèmes feuilles, puis les problèmes racines.**
+**General Rule: We start by addressing the leaf problems, then the root problems.**
 
-## Mesures au niveau de la base de données :
+## Database-level Measures:
 
-1. Appliquer **un salt** au mot de passe, pour éviter que le hashage ne soit réversible.
-2. Si une attaque survient, l’attaquant ne doit pas avoir le pouvoir d’admin. Pour ce faire, le premier compte utilisateur dans table doit avoir le moins de privilèges et ne doit pas être actif (si vous avez une colonne actif/inactif).
-3. Eviter d’utiliser le compte « root » pour accéder à votre base de données, créez un utilisateur qui n’accède qu’à la base de données utilisée. Ceci évite que l'attaquant accède à la base de données **information_schema** et n'aura donc pas d'information sur les bases de données, les tables et les colonnes.
+1. Apply **a salt** to the password to prevent reversible hashing.
+2. If an attack occurs, the attacker should not have admin privileges. To achieve this, the first user account in the table should have the fewest privileges and should not be active (if you have an active/inactive column).
+3. Avoid using the "root" account to access your database; create a user who only has access to the database being used. This prevents the attacker from accessing the **information_schema** database and therefore from obtaining information about databases, tables, and columns.
 
-**Résultat : A ce niveau-là, même si l’injection SQL est possible, aucune donnée ne peut être récupérée, ni exploitée.**
+**Result: At this level, even if SQL injection is possible, no data can be retrieved or exploited.**
 
-## Mesures au niveau du code source :
+## Source Code-level Measures:
 
-4. Maintenant corrigez l’injection SQL sur la page des produits. 
-5. Sur la page de login corrigez le code source pour bloquer l’injection.
-
+4. Now fix the SQL injection on the products page.
+5. On the login page, fix the source code to block injection.

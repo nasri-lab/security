@@ -1,4 +1,4 @@
-# Phase 1 : Audit de sécurité
+# Phase 1 : Audit de sécurité [version anglaise](https://github.com/nasri-lab/sql-injection/blob/main/labs/lab1%20-%20sql%20injection%20-%20en.md)
 
 ## Étapes
 
@@ -63,7 +63,7 @@ Continuez jusqu’à ce que vous récupériez les informations des comptes utili
 
 ### Etape 7
 
-Si vous réussissez l'étape 6, vous trouverez que le mot de passe du premeir utilisateur est : **4477f32a354e2af4c768f70756ba6a90**, il semble que ce mot de passe est haché, essayez de le déchiffrer via un des outils disponibles :
+Si vous réussissez l'étape 6, vous trouverez que le mot de passe du premeir utilisateur est : **4477f32a354e2af4c768f70756ba6a90**, il semble que ce mot de passe est haché, essayez de le déchiffrer via l'un des outils disponibles :
 [https://www.google.com/search?q=sha1+md5+decrypt](https://www.google.com/search?q=sha1+md5+decrypt)
 
 ## Synthèse
