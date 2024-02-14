@@ -33,34 +33,47 @@ Résultat, la page affichera l’union des deux requêtes, et c'est **gagné**.
 
 Faites cet exercice sur la page des produits (products.php), et affichez les valeurs 1, 1, 1 en bas des produits.
 
-**Astuce :** la requête « Select 1, 1, 1 » retourne 3 colonnes de valeurs 1, 1, 1.
+**Astuce :** la requête suivante renvoie 3 colonnes de valeurs 1, 1, 1 :
+```sql
+Select 1, 1, 1
+``` 
 
 ### Etape 3
+
 A la place de « 1, 1, 1 » affichez le nom de la base de données.
-Astuce select database(); permet d’afficher le nom de la base de données.
+
+**Astuce :** la requête suivante permet d’afficher le nom de la base de données.
+
+```sql
+select database();
+```
 
 ### Etape 4
-Dans Phpmyadmin, naviguez dans la base de données information_schema surtout la table « SCHEMATA », remarquez que vous pouvez récupérer depuis cette table la liste des bases de données de votre serveur. Afficher les noms des bases de données au lieu de « 1, 1, 1 »
+
+Au niveau de l'outil Phpmyadmin, naviguez dans la base de données **information_schema** surtout la table **SCHEMATA**, remarquez que vous pouvez récupérer depuis cette table la liste des bases de données de votre serveur. Afficher les noms des bases de données au lieu de « 1, 1, 1 ».
 
 ### Etape 5
-Dans Phpmyadmin, naviguez dans la base de données information_schema surtout la table « TABLES », remarquez que vous pouvez récupérer depuis cette table la liste des tabes de votre bases de données si vous avez son nom. Afficher les noms des tables de votre base de données au lieu de « 1, 1, 1 »
+
+Naviguez dans table **TABLES** de la base de données **information_schema**, remarquez que vous pouvez récupérer depuis cette table la liste des tabes de votre bases de données si vous avez son nom. 
+
+Afficher les noms des tables de votre base de données au lieu de « 1, 1, 1 ».
 
 ### Etape 6
 
 Continuez jusqu’à ce que vous récupériez les informations des comptes utilisateurs.
 
 ### Etape 7
-Le mot de passe étant : 4477f32a354e2af4c768f70756ba6a90, il semble être un mot de passe haché, essayé de le dé-hacher via un des outils disponibles :
-[https://www.google.com/search?q=sha1+md5+decrypt](https://www.google.com/search?q=sha1+md5+decrypt)
 
+Si vous réussissez l'étape 6, vous trouverez que le mot de passe du premeir utilisateur est : **4477f32a354e2af4c768f70756ba6a90**, il semble que ce mot de passe est haché, essayez de le dé-hacher via un des outils disponibles :
+[https://www.google.com/search?q=sha1+md5+decrypt](https://www.google.com/search?q=sha1+md5+decrypt)
 
 ## Synthèse
 
-Arrivant à ce stade, vous avez pu :
-- Contourner le processus d’authentification
-- Accéder à toutes les bases de données de votre serveur
+Arrivant à ce stade, notez que vous avez pu :
+- **Contourner** le processus d’**authentification**
+- **Accéder** à toutes les **bases de données de votre serveur**
 - Accéder aux données de votre bases de données
-- Récupérer les mots de passe de vos comptes d’utilisateur
+- **Récupérer** les mots de passe de vos comptes d’utilisateur
 
 # Phase 2 : Implémentation des mesures de protection
 
@@ -68,9 +81,9 @@ Arrivant à ce stade, vous avez pu :
 
 ## Mesures au niveau de la base de données :
 
-1. Appliquer un salt au mot de passe, pour éviter que le hashage ne soit réversible
-2. Si une attaque survient, l’attaquant ne doit pas avoir le pouvoir d’admin, pour ce faire, le premier compte utilisateur dans table doit avoir le moins de privilèges et ne doit pas être actif (si vous avez une colonne actif/inactif).
-3. Eviter d’utiliser le compte « root » pour accéder à votre base de données, créez un utilisateur qui n’accède qu’à la base de données utilisée.
+1. Appliquer **un salt** au mot de passe, pour éviter que le hashage ne soit réversible.
+2. Si une attaque survient, l’attaquant ne doit pas avoir le pouvoir d’admin. Pour ce faire, le premier compte utilisateur dans table doit avoir le moins de privilèges et ne doit pas être actif (si vous avez une colonne actif/inactif).
+3. Eviter d’utiliser le compte « root » pour accéder à votre base de données, créez un utilisateur qui n’accède qu’à la base de données utilisée. Ceci évite que l'attaquant accède à la base de données **information_schema** et n'aura donc pas d'information sur les bases de données, les tables et les colonnes.
 
 **Résultat : A ce niveau-là, même si l’injection SQL est possible, aucune donnée ne peut être récupérée, ni exploitée.**
 
