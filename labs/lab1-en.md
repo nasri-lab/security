@@ -1,4 +1,6 @@
-# Phase 1: Security Audit [French version](https://github.com/nasri-lab/sql-injection/blob/main/labs/lab1%20-%20sql%20injection%20-%20fr.md)
+[English](https://github.com/nasri-lab/sql-injection/blob/main/labs/lab1-en.md) - [Français](https://github.com/nasri-lab/sql-injection/blob/main/labs/lab1-fr.md)
+
+# Phase 1: Security Audit
 
 ## Steps
 
