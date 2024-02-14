@@ -1,4 +1,4 @@
-[English](https://github.com/nasri-lab/sql-injection/blob/main/labs/lab1-en.md) - [Français](https://github.com/nasri-lab/sql-injection/blob/main/labs/lab1-fr.md)
+English - [Français](https://github.com/nasri-lab/sql-injection/blob/main/labs/lab1-fr.md)
 
 # Phase 1: Security Audit
 
