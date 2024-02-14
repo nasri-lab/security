@@ -43,7 +43,7 @@ Arrivant à ce stade, vous avez pu :
 
 # Phase 2 : Implémentation des mesures de protection
 
-** Règle générale**  : On commence par régler les problèmes feuilles, puis les problèmes racines.
+**Règle générale : On commence par régler les problèmes feuilles, puis les problèmes racines.**
 
 ## Mesures au niveau de la base de données :
 
@@ -51,7 +51,7 @@ Arrivant à ce stade, vous avez pu :
 2. Si une attaque survient, l’attaquant ne doit pas avoir le pouvoir d’admin, pour ce faire, le premier compte utilisateur dans table doit avoir le moins de privilèges et ne doit pas être actif (si vous avez une colonne actif/inactif).
 3. Eviter d’utiliser le compte « root » pour accéder à votre base de données, créez un utilisateur qui n’accède qu’à la base de données utilisée.
 
-A ce niveau-là, même si l’injection SQL est possible, aucune donnée ne peut être récupérée, ni exploitée.
+**Résultat : A ce niveau-là, même si l’injection SQL est possible, aucune donnée ne peut être récupérée, ni exploitée.**
 
 ## Mesures au niveau du code source :
 
