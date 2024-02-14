@@ -40,6 +40,10 @@ When contributing to this project, please adhere to the following guidelines:
 - Test your changes thoroughly to ensure they do not introduce new vulnerabilities or regressions.
 - Respect the project's code of conduct and contribute in a constructive manner.
 
+## Contact Information
+
+For any corrections or suggestions, please contact Mohammed Nasri at [mohammed.nasri@gmail.com](mailto:mohammed.nasri@gmail.com).
+
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
