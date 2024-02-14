@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: Nov 07, 2019 at 10:13 PM
--- Server version: 5.7.26
--- PHP Version: 7.2.18
+-- Host: db
+-- Generation Time: Feb 14, 2024 at 03:21 PM
+-- Server version: 5.7.44
+-- PHP Version: 8.2.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,8 +18,11 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `test_db`
+-- Database: `security_lab_db`
 --
+CREATE DATABASE IF NOT EXISTS `security_lab_db` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+
+USE `security_lab_db`;
 
 -- --------------------------------------------------------
 
@@ -28,15 +30,13 @@ SET time_zone = "+00:00";
 -- Table structure for table `account`
 --
 
-DROP TABLE IF EXISTS `account`;
-CREATE TABLE IF NOT EXISTS `account` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `account` (
+  `id` int(11) NOT NULL,
   `name` varchar(45) DEFAULT NULL,
   `email` varchar(45) DEFAULT NULL,
   `password` varchar(45) DEFAULT NULL,
-  `profile` varchar(10) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  `profile` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `account`
@@ -52,12 +52,10 @@ INSERT INTO `account` (`id`, `name`, `email`, `password`, `profile`) VALUES
 -- Table structure for table `category`
 --
 
-DROP TABLE IF EXISTS `category`;
-CREATE TABLE IF NOT EXISTS `category` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `label` varchar(10) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+CREATE TABLE `category` (
+  `id` int(11) NOT NULL,
+  `label` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `category`
@@ -73,13 +71,11 @@ INSERT INTO `category` (`id`, `label`) VALUES
 -- Table structure for table `product`
 --
 
-DROP TABLE IF EXISTS `product`;
-CREATE TABLE IF NOT EXISTS `product` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `product` (
+  `id` int(11) NOT NULL,
   `label` varchar(200) NOT NULL,
-  `id_category` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+  `id_category` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `product`
@@ -91,6 +87,50 @@ INSERT INTO `product` (`id`, `label`, `id_category`) VALUES
 (3, 'product 3', 2),
 (4, 'product 4', 2),
 (5, 'product 5', 2);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `account`
+--
+ALTER TABLE `account`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `category`
+--
+ALTER TABLE `category`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `product`
+--
+ALTER TABLE `product`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `account`
+--
+ALTER TABLE `account`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `category`
+--
+ALTER TABLE `category`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `product`
+--
+ALTER TABLE `product`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

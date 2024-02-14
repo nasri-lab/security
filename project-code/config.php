@@ -3,5 +3,5 @@
 	$servername = "db";
 	$username 	= "root";
 	$password 	= "rootpassword";
-	$dbname 	= "testdb";
+	$dbname 	= "security_lab_db";
 ?>
