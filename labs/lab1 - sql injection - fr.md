@@ -1,4 +1,4 @@
-# Exercice 1 : Audit de sécurité
+# Phase 1 : Audit de sécurité
 
 ## Etapes
 
@@ -41,10 +41,11 @@ Arrivant à ce stade, vous avez pu :
 - Accéder aux données de votre bases de données
 - Récupérer les mots de passe de vos comptes d’utilisateur
 
-# Exercice 2 : Implémentation des mesures de protection
+# Phase 2 : Implémentation des mesures de protection
 
-Règle générale : On commence par régler les problèmes feuilles, puis les problèmes racines.
-Mesures au niveau de la base de données :
+** Règle générale**  : On commence par régler les problèmes feuilles, puis les problèmes racines.
+
+## Mesures au niveau de la base de données :
 
 1. Appliquer un salt au mot de passe, pour éviter que le hashage ne soit réversible
 2. Si une attaque survient, l’attaquant ne doit pas avoir le pouvoir d’admin, pour ce faire, le premier compte utilisateur dans table doit avoir le moins de privilèges et ne doit pas être actif (si vous avez une colonne actif/inactif).
@@ -52,7 +53,8 @@ Mesures au niveau de la base de données :
 
 A ce niveau-là, même si l’injection SQL est possible, aucune donnée ne peut être récupérée, ni exploitée.
 
-Mesures au niveau du code source :
+## Mesures au niveau du code source :
 
 4. Maintenant corrigez l’injection SQL sur la page des produits. 
 5. Sur la page de login corrigez le code source pour bloquer l’injection.
+
