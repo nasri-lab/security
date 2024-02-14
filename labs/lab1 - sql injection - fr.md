@@ -1,4 +1,4 @@
-#Exercice 1 : Audit de sécurité
+# Exercice 1 : Audit de sécurité
 
 1. Essayez de contourner via l’injection SQL le formulaire de login. Dans la plupart des sites vulnérables face à l’injection, vous pouvez injecter du SQL dans le champ du login.
 Conseil : Pour avancer à pas sûrs, affichez les requêtes SQL générés le long de votre travail.
@@ -23,7 +23,7 @@ Arrivant à ce stade, vous avez pu :
 - Accéder aux données de votre bases de données
 - Récupérer les mots de passe de vos comptes d’utilisateur
 
-#Exercice 2 : Implémentation des mesures de protection
+# Exercice 2 : Implémentation des mesures de protection
 Règle générale : On commence par régler les problèmes feuilles, puis les problèmes racines.
 Mesures au niveau de la base de données :
 1. Appliquer un salt au mot de passe, pour éviter que le hashage ne soit réversible
