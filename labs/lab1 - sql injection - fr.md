@@ -9,10 +9,17 @@ Une fois vous contournez le formulaire de login, essayez de noter votre profil, 
 
 ### Etape 2
 Une fois connectés, naviguez dans l’application et chercher les pages ayant des URLs avec paramètres. Si ces pages affichent des produits par catégorie ou des utilisateurs par profil et que cette catégorie/profil est passé en paramètre, alors ces pages sont une vraie faille de sécurité, et la porte d’entrée est l’URL. Techniquement la requête derrière doit être du genre :
+
+```sql
 Select …. FROM …. WHERE …. and id_cat = <ID passé en param>
-Si nous passons en paramètre un id suivi d’un morceau SQL du genre UNION Select … la page affichera l’union des deux requêtes.
+```
+
+Si nous passons en paramètre un id suivi d’un morceau SQL du genre 
+`UNION Select …` 
+la page affichera l’union des deux requêtes.
 Faites cet exercice sur la page des produits, et affichez les valeurs 1, 1, 1 en bas des produits.
-Astuce : la requête « Select 1, 1, 1 » retourne 3 colonnes de valeurs 1, 1, 1.
+
+**Astuce :** la requête « Select 1, 1, 1 » retourne 3 colonnes de valeurs 1, 1, 1.
 
 ### Etape 3
 A la place de « 1, 1, 1 » affichez le nom de la base de données.
