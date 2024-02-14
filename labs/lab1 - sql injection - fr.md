@@ -1,25 +1,24 @@
 # Phase 1 : Audit de sécurité
 
-## Etapes
+## Étapes
 
-### Etape 1
-Essayez de contourner via l’injection SQL le formulaire de login. Dans la plupart des sites vulnérables face à l’injection, vous pouvez injecter du SQL dans le champ du login (identifiant, username ou email).
+### Étape 1
+Essayez de contourner le formulaire de connexion en utilisant une injection SQL. Dans la plupart des sites vulnérables aux injections, vous pouvez injecter du code SQL dans le champ de connexion (identifiant, nom d'utilisateur ou e-mail).
 
-**Conseil : Pour avancer à pas sûrs, affichez les requêtes SQL générés le long de votre travail.**
+**Conseil : Pour avancer en toute sécurité, affichez les requêtes SQL générées pendant votre travail.**
 
-Une fois le formulaire de login contourné, essayez de noter le profil qui vous a été affecté. S'agit-il d'un simple utilisateur ou d'un profil administrateur ? ***Notez-le, c’est important.***
+Une fois le formulaire de connexion contourné, essayez de noter le profil qui vous a été affecté. S'agit-il d'un simple utilisateur ou d'un profil administrateur ? **Notez-le, c’est important.**
 
-### Etape 2
+### Étape 2
 
-Une fois connectés, naviguez dans l’application et cherchez les pages ayant des URLs avec paramètres. Si ces pages affichent des produits par catégorie ou des utilisateurs par profil et que cette catégorie/profil est passé en paramètre, alors ces pages sont **une vraie faille de sécurité**, et la porte d’entrée dans ces pages est l’***URL***. 
+Une fois connecté, naviguez dans l’application et recherchez les pages ayant des URLs avec des paramètres. Si ces pages affichent des produits par catégorie ou des utilisateurs par profil et que cette catégorie/profil est passée en paramètre, alors ces pages sont une vraie faille de sécurité, et la porte d’entrée dans ces pages est l'***URL***.
 
 Techniquement, la requête utilisée dans ces pages pour récupérer la liste des produits/utilisateurs doit être du genre :
 
 ```sql
 Select …. FROM …. WHERE …. and id_cat = <ID passé en param>
 ```
-
-Remarquez que si nous passons en paramètre un **id** suivi d’un code SQL du genre 
+Remarquez que si nous passons en paramètre un **id** suivi d'un code SQL du genre :
 ```sql
 UNION Select …
 ```
@@ -64,7 +63,7 @@ Continuez jusqu’à ce que vous récupériez les informations des comptes utili
 
 ### Etape 7
 
-Si vous réussissez l'étape 6, vous trouverez que le mot de passe du premeir utilisateur est : **4477f32a354e2af4c768f70756ba6a90**, il semble que ce mot de passe est haché, essayez de le dé-hacher via un des outils disponibles :
+Si vous réussissez l'étape 6, vous trouverez que le mot de passe du premeir utilisateur est : **4477f32a354e2af4c768f70756ba6a90**, il semble que ce mot de passe est haché, essayez de le déchiffrer via un des outils disponibles :
 [https://www.google.com/search?q=sha1+md5+decrypt](https://www.google.com/search?q=sha1+md5+decrypt)
 
 ## Synthèse
