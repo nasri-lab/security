@@ -2,6 +2,9 @@
 	<head></head>
 	<body>
 
+
+		<h1>Users</h1>
+
 		<?php 
 
 			require_once("config.php");

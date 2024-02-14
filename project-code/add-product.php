@@ -2,6 +2,9 @@
 	<head></head>
 	<body>
 
+
+		<h1>Add new product</h1>
+
 		<?php 
 
 			session_start();

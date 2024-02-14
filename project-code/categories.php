@@ -2,6 +2,8 @@
 	<head></head>
 	<body>
 
+		<h1>Categories</h1>
+		
 		<?php 
 
 			require_once("config.php");

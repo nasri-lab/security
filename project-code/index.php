@@ -61,6 +61,9 @@
 
 		?>
 
+
+		<h1>Login</h1>
+
 		<form action='index.php' method="post">
 			<table>
 				<tr>
