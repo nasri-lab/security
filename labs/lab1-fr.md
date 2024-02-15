@@ -10,7 +10,7 @@ Avant de commencer le laboratoire, assurez-vous que le projet est en cours d'ex�
 
 1. Téléchargez le dépôt du projet depuis [GitHub](https://github.com/nasri-lab/security).
 2. Exécutez le projet sous **Docker** ou en utilisant un outil tel que **Wamp** ou **XAMPP**.
-3. Accédez au projet à l'adresse : [http://localhost:8000](http://localhost:8000)
+3. Accédez au projet à l'adresse : [http://localhost:8000](http://localhost:8000).
 4. Accédez à PhpMyAdmin à l'adresse : [http://localhost:8080](http://localhost:8080). Connectez-vous avec `nom d'utilisateur: root, mot de passe: rootpassword`.
 
 ### Étape 1
