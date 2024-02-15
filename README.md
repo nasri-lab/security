@@ -18,12 +18,15 @@ The primary objective of this project is to provide a hands-on environment for t
 
 To get started with the security lab project, follow these steps:
 
-1. Clone or download the project repository from [GitHub](https://github.com/your-repository-link).
-2. Review the documentation and instructions provided in the repository to understand the objectives of the project and how to set up the environment.
-3. Explore the test cases and scenarios related to OWASP Top 10 vulnerabilities.
-4. Experiment with identifying and exploiting vulnerabilities in the provided application code.
-5. Implement fixes and security enhancements to address identified vulnerabilities.
-6. Share your findings, experiences, and insights with the community through discussions or contributions to the project.
+1. Clone the project repository from GitHub.
+2. Customize the **docker-compose.yml** file, particularly the following line:
+    
+```
+/home/nasri/www/sql-injection:/var/www/html
+```
+    Replace `/home/nasri/www/sql-injection` with the directory path where you have stored the source code on your local machine.
+3. Run the project and proceed with the labs (refer to the **Lab** section for details).
+
 
 ## Labs
 
