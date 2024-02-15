@@ -24,7 +24,7 @@ To get started with the security lab project, follow these steps:
 ```
 /home/nasri/www/sql-injection:/var/www/html
 ```
-    Replace `/home/nasri/www/sql-injection` with the directory path where you have stored the source code on your local machine.
+Replace `/home/nasri/www/sql-injection` with the directory path where you have stored the source code on your local machine.
 3. Run the project and proceed with the labs (refer to the **Lab** section for details).
 
 
