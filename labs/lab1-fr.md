@@ -4,6 +4,15 @@
 
 ## Étapes
 
+### Étape 0 : Configuration de l'environnement
+
+Avant de commencer le laboratoire, assurez-vous que le projet est en cours d'exécution sur votre environnement local. Si ce n'est pas déjà fait, suivez ces étapes :
+
+1. Téléchargez le dépôt du projet depuis [GitHub](https://github.com/nasri-lab/security).
+2. Exécutez le projet sous **Docker** ou en utilisant un outil tel que **Wamp** ou **XAMPP**.
+3. Accédez au projet à l'adresse : [http://localhost:8000](http://localhost:8000)
+4. Accédez à PhpMyAdmin à l'adresse : [http://localhost:8080](http://localhost:8080). Connectez-vous avec `nom d'utilisateur: root, mot de passe: rootpassword`.
+
 ### Étape 1
 Essayez de contourner le formulaire de connexion en utilisant une injection SQL. Dans la plupart des sites vulnérables aux injections, vous pouvez injecter du code SQL dans le champ de connexion (identifiant, nom d'utilisateur ou e-mail).
 
