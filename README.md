@@ -21,10 +21,10 @@ To get started with the security lab project, follow these steps:
 1. Clone the project repository from GitHub.
 2. Customize the **docker-compose.yml** file, particularly the following line:
     
-```
-/home/nasri/www/sql-injection:/var/www/html
-```
-Replace `/home/nasri/www/sql-injection` with the directory path where you have stored the source code on your local machine.
+	```
+	/home/nasri/www/sql-injection:/var/www/html
+	```
+	Replace `/home/nasri/www/sql-injection` with the directory path where you have stored the source code on your local machine.
 3. Run the project and proceed with the labs (refer to the **Lab** section for details).
 
 
