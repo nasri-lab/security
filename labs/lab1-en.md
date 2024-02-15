@@ -11,13 +11,7 @@ Before starting the lab, ensure you have the project running on your local envir
 1. Download the project repository from [GitHub](https://github.com/nasri-lab/security).
 2. Run the project under **Docker** or using a tool like **Wamp** or **XAMPP**.
 3. Access the project at: [http://localhost:8000](http://localhost:8000)
-4. Access PhpMyAdmin at: [http://localhost:8080/](http://localhost:8080/) 
-   
-   Login with
-
-   `username: root
-   
-   password: rootpassword`
+4. Access PhpMyAdmin at: [http://localhost:8080/](http://localhost:8080/). Login with `username: root, password: rootpassword`
 
 ### Step 1
 Attempt to bypass the login form using SQL injection. In most sites vulnerable to injections, you can inject SQL code into the login field (username, email).
