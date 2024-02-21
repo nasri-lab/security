@@ -48,7 +48,7 @@ Perform this exercise on the products page (products.php), and display the value
 Select 1, 1, 1
 ``` 
 
-Step 3
+### Step 3
 
 Instead of "1, 1, 1", display the name of the database.
 
