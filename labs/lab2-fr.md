@@ -40,10 +40,10 @@ Essayez d'accéder à `http://localhost:8080/add-user.php`. Malgré le fait qu'e
 
 Souvenez-vous du laboratoire 1 où nous avons accédé à toutes les bases de données du serveur via l'application web, ce qui constitue un exemple d'**Élévation de privilèges**.
 
-Pour éviter cela, utilisez un utilisateur de base de données avec un accès limité uniquement à la base de données de l'application.
+**Correction :**  Utilisez un utilisateur de base de données avec un accès limité uniquement à la base de données de l'application.
 
 ### Étape 2 : Contrôle d'accès au niveau des fonctions
 
 Essayez d'effectuer une injection SQL pour exécuter des requêtes comme `DROP TABLE` ou `DROP DATABASE`. Si cela réussit, cela indique un problème de **Manque de Contrôle d'accès au niveau des fonctions**.
 
-Atténuation : Modifiez les privilèges de l'utilisateur MySQL pour inclure uniquement les capacités `SELECT`, `UPDATE`, `INSERT` et `DELETE`, en révoquant tous les autres.
+**Correction :** Modifiez les privilèges de l'utilisateur MySQL pour inclure uniquement les capacités `SELECT`, `UPDATE`, `INSERT` et `DELETE`, en révoquant tous les autres.
