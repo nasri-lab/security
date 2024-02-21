@@ -58,6 +58,6 @@ Such tools allow sniffing all data transmitted in plaintext over the network, in
 
 ### Step 2: Implement HTTPS
 
-**Fix:** To prevent this from happening, configure your server to use HTTPS instead of HTTP. In real-world applications, you need to obtain an SSL certificate.
+**Fix:** To safeguard against the sniffing of sensitive data, configure your server to use HTTPS rather than HTTP. For real-world applications, it's necessary to obtain an SSL certificate.
 
 **Caution:** Never use your passwords or enter sensitive data such as credit card numbers on a website running without HTTPS. You might inadvertently provide this data to a malicious party.
