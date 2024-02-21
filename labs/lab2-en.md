@@ -1,4 +1,4 @@
-English - [Français](https://github.com/nasri-lab/sql-injection/blob/main/labs/lab1-fr.md)
+English - [Français](https://github.com/nasri-lab/sql-injection/blob/main/labs/lab2-fr.md)
 
 # Phase 1: Application 
 
