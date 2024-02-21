@@ -25,11 +25,11 @@ Address the issue identified in Step 1 by implementing session management within
 
 ### Step 3: Role-Based Access Control
 
-After logging out, log in again using a **user** profile (not an **admin**).
+After logging out, log in again using a **user** profile (not an **admin**). Refer to **account** table.
 
 Attempt to access `http://localhost:8080/add-user.php`. Despite being accessible, this resource is sensitive and should be restricted to the **admin** profile only.
 
-**Fix:** At the top of the page, verify if the logged-in user has the permissions to access this resource. If not, redirect them to a default page (e.g., `categories.php`).
+**Fix:** At the top of the page, verify if the logged-in user has the permissions to access this resource (**admin** profile). If not, redirect them to a default page (e.g., `categories.php`).
 
 **General Rule:** Each project should have a Profile/Capabilities matrix, which must be adhered to throughout the development process.
 
@@ -39,10 +39,12 @@ Attempt to access `http://localhost:8080/add-user.php`. Despite being accessible
 
 Recall from lab 1 that we accessed all server databases through the web application, an example of **Privilege Escalation**.
 
-To prevent this, employ a database user with access restricted solely to the application's database.
+**Fix:** To prevent this, employ (or create) a database user with access restricted solely to the application's database.
+
+**Caution:** Never user the **root** user to access your database.
 
 ### Step 2: Function-Level Access Control
 
 Attempt SQL injection to execute queries like `DROP TABLE` or `DROP DATABASE`. Success indicates a problem with **Missing Function-Level Access Control**.
 
-**Mitigation:** Modify the MySQL user privileges to only include `SELECT`, `UPDATE`, `INSERT`, and `DELETE` capabilities, revoking all others.
+**Fix:** Modify the MySQL user (created in step 1 Phase 2) privileges to only include `SELECT`, `UPDATE`, `INSERT`, and `DELETE` capabilities, revoking all others (`ALTER`, `DROP`, etc.).
