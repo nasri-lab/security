@@ -25,14 +25,14 @@ It is easy to find the corresponding clear passwords using one of [these website
 - `4477f32a354e2af4c768f70756ba6a90` corresponds to `pa55w0rd1`
 - `da221472821d04cb95e9fb28591dd624` corresponds to `pa55w0rd2`
 
-In the PHP source code, use a stronger and modern encryption algorithm like bcrypt, Argon2, or scrypt.
+**Fix:** Update your the PHP source code to use a stronger and modern encryption algorithm like bcrypt, Argon2, or scrypt.
 
 ### Step 2: Salting Passwords Using Custom Code
 
 To salt passwords manually in your code:
-1. When adding a new user, create a salt string and save it in the same row in the account table (add a `salt` column to this table).
+1. When adding a new user (in the add_user.php file), create a **salt** string.
 2. Before hashing the password, append the salt to it, then hash the result.
-3. Store both the salt and the hashed password.
+3. Store both the salt and the hashed password (add a `salt` column to the **account** table).
 
 When verifying login credentials:
 1. First, locate the login row using the email only.
