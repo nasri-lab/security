@@ -7,10 +7,6 @@
 
 		<?php 
 
-			session_start();
-
-			$_SESSION['user_id'] = "lkad12321";
-
 			if(isset($_POST['id'])) {
 
 				$id = $_POST['id'];
