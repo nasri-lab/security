@@ -29,13 +29,13 @@ It is easy to find the corresponding clear passwords using one of [these website
 
 ### Step 2: Salting Passwords Using Custom Code
 
-To salt passwords manually in your code:
-1. When adding a new user (in the add_user.php file), create a **salt** string.
+To salt passwords manually in your code (in user add  page):
+1. When adding a new user, create a **salt** string.
 2. Before hashing the password, append the salt to it, then hash the result.
 3. Store both the salt and the hashed password (add a `salt` column to the **account** table).
 
-When verifying login credentials:
-1. First, locate the login row using the email only.
+When verifying login credentials (in the login page):
+1. First, locate the login row using the email only. So, update the SQL Query `SELECT ... WHERE email like ...`
 2. Retrieve the salt.
 3. Concatenate the salt and the entered password, then hash the result.
 4. Compare the hashed salted password with the password stored in the `password` column.
@@ -48,9 +48,13 @@ Use `password_hash` and `password_verify` for salting/hashing and verifying inst
 
 ### Step 1: Sniff Passwords
 
-Many tools can be used to sniff passwords sent in plaintext over the network to the server; ZAP Proxy, Fiddler, etc. You can see [here an example](https://www.youtube.com/watch?v=4C2d_nlZHiw).
+Many tools can be used to sniff passwords sent in plaintext over the network to the server; ZAP Proxy, Fiddler, etc. You can see [here a short video for ZAP Proxy](https://www.youtube.com/watch?v=4C2d_nlZHiw).
 
 Such tools allow sniffing all data transmitted in plaintext over the network, including passwords, credit card numbers, etc.
+
+**TODO**:
+1. Use ZAP proxy, and login to this application. Try retrieve via ZAP your login credentials.
+2. Use ZAP proxy, and connect to your Gmail account. Try retrieve via ZAP your login credentials.
 
 ### Step 2: Implement HTTPS
 
