@@ -34,7 +34,7 @@ To get started with the security lab project, follow these steps:
 
 - **[Lab 2: Broken Access Control](https://github.com/nasri-lab/security/blob/main/labs/lab2-en.md)**: Learn how to broke and hack access to unauthorized resources.
 
-- **[Lab 2: Cryptographic Failures](https://github.com/nasri-lab/security/blob/main/labs/lab3-en.md)**: Learn how to identify and exploit Cryptographic Failures.
+- **[Lab 3: Cryptographic Failures](https://github.com/nasri-lab/security/blob/main/labs/lab3-en.md)**: Learn how to identify and exploit Cryptographic Failures.
 
 ## Contribution Guidelines
 
