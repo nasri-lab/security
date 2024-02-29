@@ -43,9 +43,9 @@
 
 			while ($row = $result->fetch_assoc()) { ?>
 				<div>
-			    	<h2><?php echo htmlspecialchars($row['title']); ?></h2>
+			    	<h2><?php echo $row['title']; ?></h2>
 			    	<p><em>Posted on: <?php echo $row['post_date'];?></em></p>
-			    	<p><?php echo nl2br(htmlspecialchars($row['content'])); ?></p>
+			    	<p><?php echo nl2br($row['content']); ?></p>
 			    </div>
 			<?php
 			}
