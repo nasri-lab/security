@@ -133,13 +133,7 @@ ALTER TABLE `product`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 
-
-CREATE TABLE blog_posts (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    title VARCHAR(255) NOT NULL,
-    content TEXT NOT NULL,
-    post_date DATETIME DEFAULT CURRENT_TIMESTAMP
-);
+ALTER TABLE `product` ADD `description` TEXT NULL AFTER `id_category`; 
 
 COMMIT;
 

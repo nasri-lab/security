@@ -8,7 +8,7 @@ services:
     ports:
       - "8000:80"
     volumes:
-      - /home/nasri/www/sql-injection:/var/www/html
+      - /home/nasri/www/security:/var/www/html
     networks:
       - app-network
   db:
@@ -17,7 +17,7 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: rootpassword
-      MYSQL_DATABASE: testdb
+      MYSQL_DATABASE: security_lab_db
       MYSQL_USER: user
       MYSQL_PASSWORD: userpassword
     volumes:

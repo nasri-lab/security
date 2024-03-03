@@ -29,11 +29,12 @@
 				echo 'Aucun produit trouvé<br /><br />'; 
 			else {
 
-				echo '<table><tr><th>ID</th><th>LABEL</th><th>ID CATEGORY</th></tr>';
+				echo '<table><tr><th>ID</th><th>LABEL</th><th>ID CATEGORY</th><th>DESCRIPTION</th><th></th></tr>';
 
 				while ($row = $result->fetch_assoc()) {
 			        $id 		= $row["id"];
 			        $label 		= $row["label"];
+			        $description 		= $row["description"];
 			        $idCategory 		= $row["id_category"];
 			
 				?>
@@ -41,6 +42,8 @@
 						<td><?php echo $id; ?></td>
 						<td><?php echo $label; ?></td>
 						<td><?php echo $idCategory; ?></td>
+						<td><?php echo $description; ?></td>
+						<td><a href="delete-product.php">Delete</a></td>
 					</tr>
 			<?php
 
@@ -52,6 +55,8 @@
 		
 			$conn->close(); 
 		?>
+
+		<br /><a href="add-product.php">+ Add new product</a>
 
 	</body>
 </html>
