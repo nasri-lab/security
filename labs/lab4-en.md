@@ -1,4 +1,4 @@
-English - [Français](https://github.com/nasri-lab/sql-injection/blob/main/labs/lab3-fr.md)
+English - [Français](https://github.com/nasri-lab/sql-injection/blob/main/labs/lab4-fr.md)
 
 # Lab 4: Understanding and Preventing XSS Attacks
 
