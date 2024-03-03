@@ -34,28 +34,19 @@ Submit your malicious payload through the `add-product.php` page and note its im
 ### Step 1: Sanitize User Input
 Implement input sanitization in `add-product.php` to strip or encode special characters from user inputs before processing or storing them. For this, implements prepared statements.
 
-**Tip**: Use mysqli instead of mysql functions: 
 ``` PHP 
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
 // Prepare and bind
 $stmt = $conn->prepare("INSERT INTO product (libelle, category_id, description) VALUES (?, ?, ?)");
 $stmt->bind_param("sis", $libelle, $category_id, $description);
-
 ```
 ### Step 2: Encode Output
 Adjust `products.php` to encode special characters in the output. Utilize PHP's `htmlspecialchars()` function to safely encode user-generated content prior to display. 
 
 ### Step 3: Validate Input
-Apply input validation where possible to ensure that data conforms to expected formats. For instance, verify numeric fields to confirm they contain only numbers before processing.
-
-### Step 4: Content Security Policy (CSP)
-Consider implementing a Content Security Policy as an additional security measure to mitigate the risk of XSS attacks.
+Apply input validation where possible to ensure that data conforms to expected formats. For instance, verify:
+1. Numeric fields to confirm they contain only numbers before processing.
+2. Email fields to confirm they contain only emails before processing.
+3. etc.
 
 ## Phase 4: Testing Fixes
 
@@ -64,6 +55,3 @@ Attempt to exploit the XSS vulnerability once more using the same payloads from 
 
 ### Step 2: Review and Understand the Fixes
 Review how input sanitization, output encoding, and validation help prevent XSS vulnerabilities and secure web applications.
-
-## Conclusion
-Compose a brief report discussing the significance of preventing XSS attacks, the potential for exploitation if vulnerabilities are not mitigated, and the measures taken in this lab to address them.
