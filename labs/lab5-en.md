@@ -1,3 +1,5 @@
+English - [Français](https://github.com/nasri-lab/sql-injection/blob/main/labs/lab5-fr.md)
+
 # Lab 5: Understanding and Preventing CSRF Attacks
 
 ## Objective
