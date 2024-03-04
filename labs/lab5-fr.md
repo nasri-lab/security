@@ -59,7 +59,7 @@ if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_tok
 }
 ```
 
-### Étape 3 : Modify Your Forms
+### Étape 3 : Modifier les Formulaires
 
 Assurez-vous que chaque formulaire inclut le token CSRF comme un champ caché. Démarrez la session PHP au début de chaque page ou formulaire où vous avez besoin d'accéder aux variables `$_SESSION`, puis utilisez le token CSRF stocké dans vos formulaires.
 
