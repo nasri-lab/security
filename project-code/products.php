@@ -43,7 +43,7 @@
 						<td><?php echo $label; ?></td>
 						<td><?php echo $idCategory; ?></td>
 						<td><?php echo $description; ?></td>
-						<td><a href="delete-product.php">Delete</a></td>
+						<td><a href="delete-product.php?id=<?php echo $id; ?>">Delete</a></td>
 					</tr>
 			<?php
 

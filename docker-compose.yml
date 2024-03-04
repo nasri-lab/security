@@ -11,6 +11,16 @@ services:
       - /home/nasri/www/security:/var/www/html
     networks:
       - app-network
+  web2:
+    build: .
+    container_name: php_web_2
+    restart: always
+    ports:
+      - "8100:80"
+    volumes:
+      - /home/nasri/www/attacker-code:/var/www/html
+    networks:
+      - app-network
   db:
     image: mysql:5.7
     container_name: mysql_db
