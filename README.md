@@ -32,9 +32,13 @@ To get started with the security lab project, follow these steps:
 
 - **[Lab 1: SQL Injection](https://github.com/nasri-lab/security/blob/main/labs/lab1-en.md)**: Learn how to identify and exploit SQL injection vulnerabilities in web applications.
 
-- **[Lab 2: Broken Access Control](https://github.com/nasri-lab/security/blob/main/labs/lab2-en.md)**: Learn how to broke and hack access to unauthorized resources.
+- **[Lab 2: Broken Access Control](https://github.com/nasri-lab/security/blob/main/labs/lab2-en.md)**: Understand and learn techniques to bypass broken access controls and gain unauthorized access to resources.
 
-- **[Lab 3: Cryptographic Failures](https://github.com/nasri-lab/security/blob/main/labs/lab3-en.md)**: Learn how to identify and exploit Cryptographic Failures.
+- **[Lab 3: Cryptographic Failures](https://github.com/nasri-lab/security/blob/main/labs/lab3-en.md)**: Explore how to identify and exploit vulnerabilities resulting from cryptographic failures.
+
+- **[Lab 4: XSS attacks](https://github.com/nasri-lab/security/blob/main/labs/lab4-en.md)**: Learn how to identify and exploit Cross-Site Scripting (XSS) vulnerabilities.
+
+- **[Lab 5: CSRF attacks](https://github.com/nasri-lab/security/blob/main/labs/lab5-en.md)**: Discover how to recognize and mitigate Cross-Site Request Forgery (CSRF) attacks.
 
 ## Contribution Guidelines
 
