@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : db
--- Généré le : lun. 23 fév. 2026 à 11:59
+-- Généré le : lun. 23 fév. 2026 à 21:35
 -- Version du serveur : 8.0.44
 -- Version de PHP : 8.3.28
 
@@ -40,8 +40,8 @@ CREATE TABLE `account` (
 --
 
 INSERT INTO `account` (`id`, `name`, `email`, `password`, `profile`) VALUES
-(1, 'compte1', 'compte1@test.com', '4477f32a354e2af4c768f70756ba6a90', 'admin'),
-(2, 'compte2', 'compte2@test.com', 'da221472821d04cb95e9fb28591dd624', 'user');
+(1, 'admin', 'admin@test.com', '21232f297a57a5a743894a0e4a801fc3', 'admin'),
+(2, 'user', 'user@test.com', 'ee11cbb19052e40b07aac0ca060c23ee', 'user');
 
 -- --------------------------------------------------------
 
@@ -62,10 +62,9 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`id`, `user_id`, `product_id`, `quantity`, `added_at`) VALUES
-(1, 123, 1, 3, '2026-02-23 10:45:10'),
-(2, 123, 3, 2, '2026-02-23 10:45:14'),
-(3, 123, 4, 1, '2026-02-23 10:45:15'),
-(4, 123, 2, 1, '2026-02-23 10:47:55');
+(10, 2, 2, 1, '2026-02-23 17:03:48'),
+(11, 2, 3, 2, '2026-02-23 17:03:49'),
+(12, 2, 4, 1, '2026-02-23 17:03:50');
 
 -- --------------------------------------------------------
 
@@ -95,6 +94,7 @@ INSERT INTO `category` (`id`, `label`) VALUES
 CREATE TABLE `product` (
   `id` int NOT NULL,
   `label` varchar(200) NOT NULL,
+  `price` decimal(10,2) NOT NULL DEFAULT '0.00',
   `id_category` int NOT NULL,
   `description` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -103,12 +103,12 @@ CREATE TABLE `product` (
 -- Déchargement des données de la table `product`
 --
 
-INSERT INTO `product` (`id`, `label`, `id_category`, `description`) VALUES
-(1, 'product 1', 1, NULL),
-(2, 'product 2', 1, NULL),
-(3, 'product 3', 2, NULL),
-(4, 'product 4', 2, NULL),
-(5, 'product 5', 2, NULL);
+INSERT INTO `product` (`id`, `label`, `price`, `id_category`, `description`) VALUES
+(1, 'product 1', 10.00, 1, NULL),
+(2, 'product 2', 20.00, 1, NULL),
+(3, 'product 3', 15.00, 2, NULL),
+(4, 'product 4', 5.50, 2, NULL),
+(5, 'product 5', 2.30, 2, NULL);
 
 --
 -- Index pour les tables déchargées
@@ -152,7 +152,7 @@ ALTER TABLE `account`
 -- AUTO_INCREMENT pour la table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT pour la table `category`

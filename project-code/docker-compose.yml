@@ -12,7 +12,7 @@ services:
     volumes:
       # IMPORTATION AUTOMATIQUE : 
       # On lie ton fichier local au dossier d'initialisation de MySQL
-      - ./db-dump.sql:/docker-entrypoint-initdb.d/db-dump.sql
+      - ./mysql_init/security_lab_db.sql:/docker-entrypoint-initdb.d/db-dump.sql
       - mysql_data:/var/lib/mysql
     ports:
       - "3306:3306"
