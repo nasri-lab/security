@@ -3,7 +3,7 @@ require_once("config.php");
 
 // 1. Récupération des données
 $product_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
-$user_id = 123; // ID utilisateur fixe
+$user_id = 456; // ID utilisateur fixe
 
 if ($product_id > 0) {
     $conn = new mysqli($servername, $username, $password, $dbname);

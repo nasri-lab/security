@@ -3,7 +3,7 @@ require_once("config.php");
 
 // 1. On initialise le compteur à 0
 $total_items = 0;
-$user_id = 123; // Votre ID utilisateur statique
+$user_id = 456; // Votre ID utilisateur statique
 
 // 2. On compte la somme des quantités dans le panier
 $conn_menu = new mysqli($servername, $username, $password, $dbname);
@@ -104,14 +104,14 @@ if (!$conn_menu->connect_error) {
         <a href="home.php" class="nav-link">Tous les produits</a>
         <div class="nav-separator"></div>
         
-        <a href="panier.php?u=123" class="nav-link">
+        <a href="panier.php?u=456" class="nav-link">
             Mon panier 
             <?php if ($total_items > 0): ?>
                 <span class="badge-cart"><?php echo $total_items; ?></span>
             <?php endif; ?>
         </a>
         
-        <a href="profil.php?u=123" class="nav-link">Mon profil</a>
+        <a href="profile.php?u=1" class="nav-link">Mon profil</a>
         <a href="logout.php" class="nav-link" style="color: #e74c3c;">Déconnexion</a>
         
         <div class="nav-separator"></div>
