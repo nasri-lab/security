@@ -3,7 +3,11 @@ require_once("config.php");
 
 // 1. Récupération des données
 $product_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
-$user_id = 456; // ID utilisateur fixe
+if (!isset($_COOKIE['user_id'])) {
+    header("Location: index.php?error=auth");
+    exit();
+}
+$user_id = intval($_COOKIE['user_id']);
 
 if ($product_id > 0) {
     $conn = new mysqli($servername, $username, $password, $dbname);

@@ -1,56 +1,87 @@
-<html>
-	<head></head>
-	<body>
+<?php 
+require_once("../config.php");
 
-		<?php require_once "menu.php"; ?>
-		
-		<h1>Users</h1>
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-		<?php 
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+?>
 
-			require_once("config.php");
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestion Utilisateurs - Admin</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background-color: #f4f7f6; margin: 0; padding: 20px; }
+        .admin-container { max-width: 1100px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        
+        h1 { color: #2c3e50; border-bottom: 2px solid #eee; padding-bottom: 10px; margin-bottom: 20px; }
+        
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th { background-color: #34495e; color: white; padding: 12px; text-align: left; font-size: 14px; }
+        td { padding: 12px; border-bottom: 1px solid #eee; color: #444; font-size: 14px; }
+        tr:hover { background-color: #f1f4f6; }
 
-			// Create connection
-			$conn = new mysqli($servername, $username, $password, $dbname);
+        .role-badge {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .role-admin { background-color: #e67e22; color: white; }
+        .role-user { background-color: #bdc3c7; color: #2c3e50; }
+        
+        .pwd-cell { font-family: monospace; color: #95a5a6; font-size: 11px; }
+    </style>
+</head>
+<body>
 
-			// Check connection
-			if ($conn->connect_error) {
-			    die("Connection failed: " . $conn->connect_error);
-			}
+<div class="admin-container">
+    <?php require_once "menu-admin.php"; ?>
 
-			$result = $conn->query("SELECT * FROM account");
+    <h1>Gestion des Utilisateurs</h1>
 
-			if ($result->num_rows <= 0) 
-				echo 'Aucun utilisateur trouvé<br /><br />'; 
-			else {
+    <?php 
+        $result = $conn->query("SELECT * FROM account");
 
-				echo '<table><tr><th>ID</th><th>NAME</th><th>EMAIL</th><th>PASSWORD</th><th>PROFILE</th></tr>';
+        if ($result->num_rows <= 0) {
+            echo '<p>Aucun utilisateur trouvé.</p>'; 
+        } else {
+    ?>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nom</th>
+                    <th>Email</th>
+                    <th>Profil</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php while ($row = $result->fetch_assoc()): 
+                    $roleClass = ($row["profile"] === 'admin') ? 'role-admin' : 'role-user';
+                ?>
+                    <tr>
+                        <td>#<?php echo $row["id"]; ?></td>
+                        <td><strong><?php echo $row["name"]; ?></strong></td>
+                        <td><?php echo $row["email"]; ?></td>
+                        <td>
+                            <span class="role-badge <?php echo $roleClass; ?>">
+                                <?php echo $row["profile"]; ?>
+                            </span>
+                        </td>
+                    </tr>
+                <?php endwhile; ?>
+            </tbody>
+        </table>
+    <?php 
+        }
+        $conn->close(); 
+    ?>
+</div>
 
-				while ($row = $result->fetch_assoc()) {
-			        $id 		= $row["id"];
-			        $name 		= $row["name"];
-			        $email 		= $row["email"];
-			        $password 		= $row["password"];
-			        $profil 		= $row["profile"];
-			
-				?>
-					<tr>
-						<td><?php echo $id; ?></td>
-						<td><?php echo $name; ?></td>
-						<td><?php echo $email; ?></td>
-						<td><?php echo $password; ?></td>
-						<td><?php echo $profil; ?></td>
-					</tr>
-			<?php
-
-				}
-
-				echo '</table>';
-
-			}
-		
-			$conn->close(); 
-		?>
-
-	</body>
+</body>
 </html>
