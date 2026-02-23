@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  # Base de données MySQL
+  db:
+    image: mysql:8.0
+    container_name: mysql_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: security_lab_db
+    volumes:
+      # IMPORTATION AUTOMATIQUE : 
+      # On lie ton fichier local au dossier d'initialisation de MySQL
+      - ./db-dump.sql:/docker-entrypoint-initdb.d/db-dump.sql
+      - mysql_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+  # Application PHP
+  php:
+    build: .
+    container_name: php_app
+    ports:
+      - "8080:80"
+    volumes:
+      - ./src:/var/www/html
+    depends_on:
+      - db
+
+  # Interface phpMyAdmin
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: phpmyadmin_gui
+    restart: always
+    environment:
+      PMA_HOST: db
+      PMA_USER: root
+      PMA_PASSWORD: root_password
+    ports:
+      - "8081:80"
+    depends_on:
+      - db
+
+volumes:
+  mysql_data:
