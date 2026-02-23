@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.3
 -- https://www.phpmyadmin.net/
 --
--- Host: db
--- Generation Time: Feb 14, 2024 at 03:21 PM
--- Server version: 5.7.44
--- PHP Version: 8.2.8
+-- Hôte : db
+-- Généré le : lun. 23 fév. 2026 à 11:59
+-- Version du serveur : 8.0.44
+-- Version de PHP : 8.3.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,20 +18,17 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `security_lab_db`
+-- Base de données : `security_lab_db`
 --
-CREATE DATABASE IF NOT EXISTS `security_lab_db` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-
-USE `security_lab_db`;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `account`
+-- Structure de la table `account`
 --
 
 CREATE TABLE `account` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `name` varchar(45) DEFAULT NULL,
   `email` varchar(45) DEFAULT NULL,
   `password` varchar(45) DEFAULT NULL,
@@ -39,7 +36,7 @@ CREATE TABLE `account` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `account`
+-- Déchargement des données de la table `account`
 --
 
 INSERT INTO `account` (`id`, `name`, `email`, `password`, `profile`) VALUES
@@ -49,16 +46,40 @@ INSERT INTO `account` (`id`, `name`, `email`, `password`, `profile`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `category`
+-- Structure de la table `cart`
+--
+
+CREATE TABLE `cart` (
+  `id` int NOT NULL,
+  `user_id` int NOT NULL,
+  `product_id` int NOT NULL,
+  `quantity` int DEFAULT '1',
+  `added_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `cart`
+--
+
+INSERT INTO `cart` (`id`, `user_id`, `product_id`, `quantity`, `added_at`) VALUES
+(1, 123, 1, 3, '2026-02-23 10:45:10'),
+(2, 123, 3, 2, '2026-02-23 10:45:14'),
+(3, 123, 4, 1, '2026-02-23 10:45:15'),
+(4, 123, 2, 1, '2026-02-23 10:47:55');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `category`
 --
 
 CREATE TABLE `category` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `label` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `category`
+-- Déchargement des données de la table `category`
 --
 
 INSERT INTO `category` (`id`, `label`) VALUES
@@ -68,73 +89,82 @@ INSERT INTO `category` (`id`, `label`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `product`
+-- Structure de la table `product`
 --
 
 CREATE TABLE `product` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `label` varchar(200) NOT NULL,
-  `id_category` int(11) NOT NULL
+  `id_category` int NOT NULL,
+  `description` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `product`
+-- Déchargement des données de la table `product`
 --
 
-INSERT INTO `product` (`id`, `label`, `id_category`) VALUES
-(1, 'product 1', 1),
-(2, 'product 2', 1),
-(3, 'product 3', 2),
-(4, 'product 4', 2),
-(5, 'product 5', 2);
+INSERT INTO `product` (`id`, `label`, `id_category`, `description`) VALUES
+(1, 'product 1', 1, NULL),
+(2, 'product 2', 1, NULL),
+(3, 'product 3', 2, NULL),
+(4, 'product 4', 2, NULL),
+(5, 'product 5', 2, NULL);
 
 --
--- Indexes for dumped tables
+-- Index pour les tables déchargées
 --
 
 --
--- Indexes for table `account`
+-- Index pour la table `account`
 --
 ALTER TABLE `account`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `category`
+-- Index pour la table `cart`
+--
+ALTER TABLE `cart`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `category`
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `product`
+-- Index pour la table `product`
 --
 ALTER TABLE `product`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT pour les tables déchargées
 --
 
 --
--- AUTO_INCREMENT for table `account`
+-- AUTO_INCREMENT pour la table `account`
 --
 ALTER TABLE `account`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `category`
+-- AUTO_INCREMENT pour la table `cart`
+--
+ALTER TABLE `cart`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT pour la table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `product`
+-- AUTO_INCREMENT pour la table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
-
-ALTER TABLE `product` ADD `description` TEXT NULL AFTER `id_category`; 
-
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
