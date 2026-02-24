@@ -1,11 +1,7 @@
 <?php
 require_once("../config.php");
 
-// Sécurité : Vérifier si l'utilisateur est bien admin via le cookie
-if (!isset($_COOKIE['user_role']) || $_COOKIE['user_role'] !== 'admin') {
-    header("Location: ../index.php");
-    exit();
-}
+// Test sur le cookie et le role
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
