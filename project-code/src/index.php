@@ -11,11 +11,16 @@
     $message = '';
 
     if(isset($_POST['email'])) {
-        $email = $conn->real_escape_string($_POST['email']); // Sécurité
+        $email = $_POST['email']; // Vulnérable
+        //$email = $conn->real_escape_string($_POST['email']); // Sécurité
+
         $user_password = $_POST['password'];
 
         // Note: MD5 est obsolète pour la sécurité, mais je le garde pour rester compatible avec votre base actuelle
         $sql = "SELECT * FROM account WHERE email = '$email' AND password = '" . MD5($user_password) . "' ";
+        
+        //echo $sql;
+
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
@@ -141,7 +146,7 @@
         <form action='index.php' method="post">
             <div class="form-group">
                 <label>Adresse Email</label>
-                <input type="email" name="email" required placeholder="nom@exemple.com"/>
+                <input type="text" name="email" required placeholder="nom@exemple.com"/>
             </div>
 
             <div class="form-group">

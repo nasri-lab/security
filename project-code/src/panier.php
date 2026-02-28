@@ -2,7 +2,9 @@
 require_once("config.php");
 require_once("menu.php"); 
 
-$user_id = isset($_GET['u']) ? intval($_GET['u']) : 123;
+$user_id = isset($_GET['u']) ? $_GET['u'] : 123; // Securisé
+//$user_id = isset($_GET['u']) ? intval($_GET['u']) : 123; // Securisé
+
 $conn = new mysqli($servername, $username, $password, $dbname);
 $grand_total = 0;
 ?>
@@ -126,6 +128,9 @@ $grand_total = 0;
             FROM cart c 
             INNER JOIN product p ON c.product_id = p.id 
             WHERE c.user_id = $user_id";
+
+    //echo  $sql;
+    
     $result = $conn->query($sql);
 
     if ($result && $result->num_rows > 0): 
