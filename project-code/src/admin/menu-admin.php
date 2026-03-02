@@ -26,5 +26,7 @@
     <a href="admin.php">Dashboard</a>
     <a href="categories.php">Gestion Produits</a>
     <a href="users.php">Gestion Utilisateurs</a>
+    <a href="diagnostic.php">Diagnostic</a>
+     
     <a href="../logout.php" style="color: #e74c3c;">Déconnexion</a>
 </nav>

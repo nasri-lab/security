@@ -11,6 +11,7 @@
     $message = '';
 
     if(isset($_POST['email'])) {
+        
         $email = $_POST['email']; // Vulnérable
         //$email = $conn->real_escape_string($_POST['email']); // Sécurité
 
