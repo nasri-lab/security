@@ -86,8 +86,22 @@
     <?php require_once "menu.php"; ?>
 
     <div class="container">
+
+        <div style="margin-bottom: 20px; text-align: center;">
+            <form action="" method="GET">
+                <input type="text" name="query" placeholder="Rechercher un produit..." style="padding: 10px; width: 250px;">
+                <button type="submit" style="padding: 10px; background-color: #3498db; color: white; border: none; cursor: pointer;">🔍</button>
+            </form>
+        </div>
+
         <h1>Produits disponibles</h1>
 
+        <?php
+        if (isset($_GET['query']) && !empty($_GET['query'])) {
+            // VULNÉRABILITÉ ICI : On affiche directement le contenu de 'query' sans filtrage
+            echo "<p>Résultats pour la recherche : <strong>" . $_GET['query'] . "</strong></p>";
+        }
+        ?>
         <?php 
             require_once("config.php");
             $conn = new mysqli($servername, $username, $password, $dbname);
