@@ -27,6 +27,33 @@ services:
       - ./src:/var/www/html
     depends_on:
       - db
+    #   - ldap # Décommente ceci quand tu utiliseras LDAP
+
+  # ==========================================================
+  # SERVICES LDAP (Décommente les lignes ci-dessous pour tester l'injection LDAP)
+  # ==========================================================
+  
+#   ldap:
+#     image: osixia/openldap:latest
+ #    container_name: ldap_server
+  #   environment:
+   #    LDAP_ORGANISATION: "EMSI Lab"
+    #   LDAP_DOMAIN: "emsi.ma"
+     #  LDAP_ADMIN_PASSWORD: "admin_password"
+#     ports:
+ #      - "389:389"
+  #     - "636:636"
+
+#   phpldapadmin:
+ #    image: osixia/phpldapadmin:latest
+  #   container_name: phpldapadmin_gui
+   #  environment:
+#       PHPLDAPADMIN_LDAP_HOSTS: "ldap"
+ #      PHPLDAPADMIN_HTTPS: "false"
+  #   ports:
+   #    - "8082:80"
+    # depends_on:
+     #  - ldap
 
   # Interface phpMyAdmin
   phpmyadmin:

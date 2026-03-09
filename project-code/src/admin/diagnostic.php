@@ -1,4 +1,5 @@
 <?php
+
 require_once("../config.php");
 // On garde la sécurité admin pour que l'atelier soit réaliste
 
@@ -39,6 +40,7 @@ require_once("../config.php");
 
         // LA FAILLE EST ICI : On concatène directement la saisie dans la commande shell
         // Exemple de paramètre /var/www/html
+
         $cmd = "du -sh " . $target;
 
         // shell_exec exécute la commande et retourne le résultat sous forme de chaîne
